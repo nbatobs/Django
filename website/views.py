@@ -1,7 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+<<<<<<< HEAD
 from .forms import SignUpForm
+=======
+>>>>>>> 96b17488572a68bfdecc38fc3f7f361340ccc592
 # Create your views here.
 def home(request):
     # check to see if logging in
@@ -26,6 +29,7 @@ def login_user(request):
 def logout_user(request):
     logout(request)
     messages.success(request, "You have been logged out")
+<<<<<<< HEAD
     return redirect('home')
 
 def register_user(request):
@@ -44,3 +48,6 @@ def register_user(request):
             form = SignUpForm()
             return render(request, 'register.html', {'form':form})
     return render(request, 'register.html', {'form': form})
+=======
+    return redirect('home')
+>>>>>>> 96b17488572a68bfdecc38fc3f7f361340ccc592
