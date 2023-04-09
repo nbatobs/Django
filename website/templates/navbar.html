@@ -7,17 +7,19 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         {% if user.is_authenticated %}
+         <li class="nav-item">
+          <a class="nav-link" href="{% url 'add_customer' %}">Add Customer</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="{% url 'logout' %}">Logout</a>
         </li>
         {%else%}
         <li class="nav-item">
-<<<<<<< HEAD
+
           <a class="nav-link" href="{% url 'register'%}">Register</a>
         </li>
         <li class="nav-item">
-=======
->>>>>>> 96b17488572a68bfdecc38fc3f7f361340ccc592
+
           <a class="nav-link" href="{% url 'home'%}">Login</a>
         </li>
         {%endif%}

@@ -1,6 +1,7 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 from django import forms
+from .models import Customer
 
 
 class SignUpForm(UserCreationForm):
@@ -35,3 +36,21 @@ class SignUpForm(UserCreationForm):
         self.fields['password2'].label = ''
         self.fields[
             'password2'].help_text = '<span class="form-text text-muted"><small>Enter the same password as before, for verification.</small></span>'
+
+
+
+# Creating adding record form
+
+class Add_Customer_Form(forms.ModelForm):
+    first_name = forms.CharField(max_length=50,required=True,widget=forms.widgets.TextInput(attrs={'placeholder':'First Name','class':'form-control'}),label='')
+    last_name = forms.CharField(max_length=50,required=True,widget=forms.widgets.TextInput(attrs={'placeholder':'Last Name','class':'form-control'}),label='')
+    email = forms.EmailField(max_length=100,required=True,widget=forms.widgets.TextInput(attrs={'placeholder':'Email','class':'form-control'}),label='')
+    phone = forms.CharField(max_length=11,required=True,widget=forms.widgets.TextInput(attrs={'placeholder':'Phone number','class':'form-control'}),label='')
+    address = forms.CharField(max_length=200,required=True,widget=forms.widgets.TextInput(attrs={'placeholder':'Address','class':'form-control'}),label='')
+    city = forms.CharField(max_length=50,required=True,widget=forms.widgets.TextInput(attrs={'placeholder':'City','class':'form-control'}),label='')
+    postcode = forms.CharField(max_length=50,required=True,widget=forms.widgets.TextInput(attrs={'placeholder':'Postcode','class':'form-control'}),label='')
+
+
+    class Meta:
+        model = Customer
+        exclude =('user',)
